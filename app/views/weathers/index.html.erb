@@ -1,0 +1,18 @@
+<div class="container">
+  <h1>Weather May Weathers App</h1>
+
+  <p>Location: <%= @channel["location"]["city"] %>, <%= @channel["location"]["region"] %></p>
+  <p>Temperature: <%= @channel["item"]["condition"]["temp"] %>° <%= @channel["units"]["temperature"] %></p>
+
+  <%# 5.times do |index| %>
+    <!-- <p>Week Day Forecast: <%# @channel["item"]["forecast"][index]° %></p> -->
+  <%# end %>
+</div>
+<div class="container">
+  <% @channel["item"]["forecast"].each do |forecast| %>
+    <h5>Date: <%= forecast["date"] %></h5>
+    <h5><%= forecast["day"] %></h5>
+    <h5><%= forecast["high"] %></h5>
+    <h5><%= forecast["low"] %></h5>
+  <% end  %>
+</div>
