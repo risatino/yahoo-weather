@@ -1,6 +1,12 @@
 <div class="container">
   <h1>Weather May Weathers App</h1>
-
+  <br>
+  <%= form_tag '/', method: :get do %>
+    <%= text_field_tag :city, nil, placeholder: "City" %>
+    <%= text_field_tag :state, nil, placeholder: "State" %>
+    <%= submit_tag 'Go!' %>
+  <% end %>
+  <br>
   <h5>Location: <%= @channel["location"]["city"] %>, <%= @channel["location"]["region"] %></h5>
   <h5>Temperature: <%= @channel["item"]["condition"]["temp"] %>° <%= @channel["units"]["temperature"] %></h5>
 
