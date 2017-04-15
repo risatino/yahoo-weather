@@ -1,18 +1,18 @@
 <div class="container">
   <h1>Weather May Weathers App</h1>
 
-  <p>Location: <%= @channel["location"]["city"] %>, <%= @channel["location"]["region"] %></p>
-  <p>Temperature: <%= @channel["item"]["condition"]["temp"] %>° <%= @channel["units"]["temperature"] %></p>
+  <h5>Location: <%= @channel["location"]["city"] %>, <%= @channel["location"]["region"] %></h5>
+  <h5>Temperature: <%= @channel["item"]["condition"]["temp"] %>° <%= @channel["units"]["temperature"] %></h5>
 
   <%# 5.times do |index| %>
-    <!-- <p>Week Day Forecast: <%# @channel["item"]["forecast"][index]° %></p> -->
+    <!-- <h5>Week Day Forecast: <%# @channel["item"]["forecast"][index]° %></h5> -->
   <%# end %>
 </div>
 <div class="container">
-  <% @channel["item"]["forecast"].each do |forecast| %>
-    <h5>Date: <%= forecast["date"] %></h5>
-    <h5><%= forecast["day"] %></h5>
-    <h5><%= forecast["high"] %></h5>
-    <h5><%= forecast["low"] %></h5>
+  <% @channel["item"]["forecast"].take(5).each do |forecast| %>
+    <h5>Date: <%= forecast["day"] %>, <%= forecast["date"] %></h5>
+    <h5>Feeling: <%= forecast["text"] %></h5>
+    <h5>High/Low: <%= forecast["high"] %>°<%= @channel["units"]["temperature"] %>/ <%= forecast["low"] %>°<%= @channel["units"]["temperature"] %></h5>
+    <br>
   <% end  %>
 </div>
